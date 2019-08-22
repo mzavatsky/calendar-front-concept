@@ -1,13 +1,7 @@
 <div class="invitations" [ngStyle]="coordsConverter.getLayoutDimensionsStyle()">
-    <div *ngFor="let event of visibleEvents"
-         class="bbox"
-         [ngStyle]="{
-            top: coordsConverter.getBoundingRect(event.startAt, event.durationSeconds).top + 'px',
-            left: coordsConverter.getBoundingRect(event.startAt, event.durationSeconds).left + 'px',
-            width: coordsConverter.getBoundingRect(event.startAt, event.durationSeconds).width + 'px',
-            height: coordsConverter.getBoundingRect(event.startAt, event.durationSeconds).height + 'px'
-         }"
-    >
-        E
-    </div>
+    <app-calendar-event
+        *ngFor="let event of visibleEvents"
+        [event]="event"
+        [boundingRect]="coordsConverter.getBoundingRect(event.startAt, event.durationSeconds)"
+    ></app-calendar-event>
 </div>

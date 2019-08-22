@@ -8,6 +8,8 @@ import {HoursAxisComponent} from '@cal/components/hours-axis/hours-axis.componen
 import {WeekdaysAxisComponent} from '@cal/components/weekdays-axis/weekdays-axis.component';
 import {GridComponent} from '@cal/components/grid/grid.component';
 import {InvitationsComponent} from '@cal/components/invitations/invitations.component';
+import {EventComponent} from '@cal/components/events/event/event.component';
+import {EventGenericComponent} from '@cal/components/events/event/generic/component/generic.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +19,8 @@ import {InvitationsComponent} from '@cal/components/invitations/invitations.comp
         WeekdaysAxisComponent,
         GridComponent,
         InvitationsComponent,
+        EventComponent,
+        EventGenericComponent,
     ],
     imports: [
         BrowserModule,

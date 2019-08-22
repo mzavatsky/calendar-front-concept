@@ -13,32 +13,36 @@ export class InvitationsComponent implements OnInit {
     invitations: EventModel[];
 
     ngOnInit(): void {
-        this.invitations = [
+        const invitationsMocks = [
             {
                 startAt: new Date(2019, 7, 20, 11, 30, 0),
                 durationSeconds: 30 * 60,
                 type: 'test',
-                payload: 'Стендап'
+                payload: '{"comment": "Стендап"}'
             },
             {
                 startAt: new Date(2019, 7, 21, 11, 30, 0),
                 durationSeconds: 30 * 60,
                 type: 'test',
-                payload: 'Стендап'
+                payload: '{"comment": "Стендап"}'
             },
             {
                 startAt: new Date(2019, 7, 22, 11, 30, 0),
                 durationSeconds: 30 * 60,
                 type: 'test',
-                payload: 'Стендап'
+                payload: '{"comment": "Стендап"}'
             },
             {
                 startAt: new Date(2019, 7, 23, 13, 0, 0),
                 durationSeconds: 1.5 * 60 * 60,
                 type: 'test',
-                payload: 'Гоша Live'
+                payload: '{"comment": "Гоша Live"}'
             }
         ];
+
+        this.invitations = invitationsMocks.map(event => {
+            return EventModel.fromJSON(event);
+        });
 
         console.log(this.coordsConverter.getBoundingRect(
            this.invitations[0].startAt,

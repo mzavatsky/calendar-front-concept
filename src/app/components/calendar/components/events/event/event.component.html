@@ -1,0 +1,14 @@
+<div class="bounding-rect"
+     [ngSwitch]="event.type"
+     [ngStyle]="{
+            top: boundingRect.top + 'px',
+            left: boundingRect.left + 'px',
+            width: boundingRect.width + 'px',
+            height: boundingRect.height + 'px'
+         }"
+>
+    <app-calendar-event-generic *ngSwitchDefault
+                                [boundingRect]="boundingRect"
+                                [event]="event"
+    ></app-calendar-event-generic>
+</div>

@@ -6727,6 +6727,11 @@ ts-node@~7.0.0:
     source-map-support "^0.5.6"
     yn "^2.0.0"
 
+ts-serializable@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/ts-serializable/-/ts-serializable-1.1.8.tgz#0282ff453e4183fb80cf0c66515e7518c458ca43"
+  integrity sha512-zJpwNWolZ1DSyHtiDXKuiI22iftq10vlSaclWhz183qX3Tt7dkRbxG3LmkHoBR8B7oACIEugmVedoRDjPcWsLQ==
+
 tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"

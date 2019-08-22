@@ -25,7 +25,7 @@ export class LayoutComponent implements OnInit {
 
         const hours = [];
 
-        for (let i = 0; i < 24; i++) {
+        for (let i = 8; i < 24; i++) {
             const hour = addHours(startOfDay(this.fromDate), i);
             hours.push(hour);
         }
