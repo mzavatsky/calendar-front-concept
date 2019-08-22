@@ -2,10 +2,14 @@
 
 .page-layout {
     width: $pageWidth;
+    max-width: 100%;
+    max-height: 100vh;
     display: grid;
 
-    grid-template-columns: $hoursScrollerWidth 7 * ($dayWith + $borderWidth);
-    grid-template-rows: $weekdaysScrollerHeight $filtersHeight $weekdaysScrollerHeight auto;
+    overflow: hidden;
+
+    grid-template-columns: $hoursScrollerWidth 1fr;
+    grid-template-rows: $weekSelectorHeight $filtersHeight $weekdaysScrollerHeight 1fr;
 
     grid-template-areas:
         "weekSelector weekSelector"
@@ -18,12 +22,22 @@
         grid-area: weekSelector;
         overflow: hidden;
 
+        position: relative;
+
         border-bottom: solid $borderWidth $borderColor;
     }
 
     .filters {
         grid-area: filters;
         overflow: hidden;
+
+        padding: 0 24px;
+        line-height: $filtersHeight;
+        vertical-align: middle;
+
+        font-size: 14rem;
+
+        color: #969B9E;
 
         border-bottom: solid $borderWidth $borderColor;
     }
@@ -48,11 +62,23 @@
 
     .grid {
         grid-area: calendarGrid;
-        overflow: auto;
+        overflow-x: auto;
+        overflow-y: auto;
 
         .container {
             position: relative;
             overflow: hidden;
         }
+    }
+
+    .page-title {
+        font-size: 28rem;
+        line-height: 1;
+        color: #242D34;
+
+        position: absolute;
+
+        left: 22px;
+        bottom: 18px;
     }
 }
