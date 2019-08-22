@@ -1,36 +1,39 @@
 @import "../../shared/geometry-settings";
 
-.day {
-    display: inline-block;
-
+.axis {
     position: relative;
-    width: $dayWith;
     height: $weekdaysScrollerHeight;
 
-    border-right: solid 1px white;
-    border-bottom: solid $borderColor $borderWidth;
-
-    .month {
+    .cell {
         position: absolute;
-        left: 1px;
-        bottom: 22px;
-        color: #969B9E;
-        opacity: 0.5;
-    }
 
-    .weekday {
-        position: absolute;
-        bottom: 2px;
-        left: 1px;
-        color: #969B9E;
-    }
+        height: $weekdaysScrollerHeight;
 
-    &.current {
-        border-bottom: solid #5D9CEC 2px;
+        border-right: solid 1px white;
+        border-bottom: solid $borderColor $borderWidth;
+
+        .month {
+            position: absolute;
+            left: 1px;
+            bottom: 22px;
+            color: #969B9E;
+            opacity: 0.5;
+        }
 
         .weekday {
-            color: #5D9CEC;
+            position: absolute;
+            bottom: 2px;
+            left: 1px;
+            color: #969B9E;
         }
-    }
 
+        &.current {
+            border-bottom: solid #5D9CEC 2px;
+
+            .weekday {
+                color: #5D9CEC;
+            }
+        }
+
+    }
 }

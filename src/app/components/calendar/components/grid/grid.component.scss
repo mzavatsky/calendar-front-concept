@@ -6,15 +6,10 @@
     left: 0;
 
     .hour-row {
-        height: $hourHeight;
-
-
-        .day {
+        .cell {
             display: inline-block;
 
             position: relative;
-            width: $dayWith;
-            height: $hourHeight;
 
             border-right: solid $borderColor $borderWidth;
             border-bottom: solid $borderColor $borderWidth;

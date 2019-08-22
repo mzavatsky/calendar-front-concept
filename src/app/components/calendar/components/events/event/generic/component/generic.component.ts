@@ -13,7 +13,5 @@ export class EventGenericComponent extends EventComponent implements OnInit {
     ngOnInit(): void {
         super.ngOnInit();
         this.payload = EventGenericPayloadModel.fromJSON(JSON.parse(this.event.payload));
-        console.log(this.event.startAt);
-        console.log(this.event.endAt);
     }
 }

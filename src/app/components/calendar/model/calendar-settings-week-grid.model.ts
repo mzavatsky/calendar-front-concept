@@ -1,11 +1,9 @@
 import {CalendarSettingsInterface} from '@cal/interfaces/calendar-settings.interface';
 
 export class CalendarSettingsWeekGridModel implements CalendarSettingsInterface{
-    readonly hourHeightPx = 80;
+    readonly hourHeightPx = 80; // 80
 
-    readonly dayWidthPx = 94;
-
-    readonly borderWidth = 1;
+    readonly dayWidthPx = 94; // 94
 
     daysVisible: Date[] = [];
 

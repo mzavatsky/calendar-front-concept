@@ -1,7 +1,11 @@
 <div class="grid" [ngStyle]="coordsConverter.getLayoutDimensionsStyle()">
-    <div *ngFor="let hour of coordsConverter.getSettings().getHoursVisible()" class="hour-row">
-        <div *ngFor="let day of coordsConverter.getSettings().getDaysVisible()" class="day">
-
-        </div>
+    <div *ngFor="let hour of coordsConverter.getSettings().getHoursVisible()"
+         [ngStyle]="getHourRowPositionStyle()"
+         class="hour-row"
+    >
+        <div *ngFor="let day of coordsConverter.getSettings().getDaysVisible()"
+             class="cell"
+             [ngStyle]="getCellPositionStyle()"
+        ></div>
     </div>
 </div>

@@ -63,8 +63,6 @@ export class CoordsConverterWeekGridService implements CoordsConverterInterface 
 
         const endAt = addSeconds(startAt, durationSeconds);
 
-        console.log(hourIndex.toString());
-
         while (
             hourIndex < this.settings.hoursVisible.length - 1
             && endAt > startOfHour(startOfDay(this.settings.daysVisible[dayIndex]).setHours(
@@ -73,8 +71,6 @@ export class CoordsConverterWeekGridService implements CoordsConverterInterface 
         ) {
             hourIndex += 1;
         }
-
-        console.log(hourIndex.toString());
 
         currentHour = endOfHour(startOfDay(this.settings.daysVisible[dayIndex]).setHours(
             this.settings.hoursVisible[hourIndex].getHours()

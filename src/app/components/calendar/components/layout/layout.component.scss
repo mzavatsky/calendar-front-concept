@@ -51,13 +51,27 @@
         grid-area: weekdaysScroller;
         overflow-x: auto;
         overflow-y: hidden;
+
+        .scroll-container {
+            width: 100%;
+            height: $weekdaysScrollerHeight + 50px;
+
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
     }
 
     .hours {
         grid-area: hoursScroller;
-        overflow-x: hidden;
-        overflow-y: auto;;
+        overflow: hidden;
 
+        .scroll-container {
+            width: $hoursScrollerWidth + 50px;
+            height: 100%;
+
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
     }
 
     .grid {

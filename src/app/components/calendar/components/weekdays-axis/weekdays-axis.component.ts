@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {startOfWeek, endOfWeek, eachDay, isToday} from 'date-fns';
+import {isToday, startOfDay} from 'date-fns';
+import {CoordsConverterInterface} from '@cal/interfaces/coords-converter.interface';
 import {CalendarSettingsWeekGridModel} from '@cal/model/calendar-settings-week-grid.model';
 
 @Component({
@@ -9,9 +10,30 @@ import {CalendarSettingsWeekGridModel} from '@cal/model/calendar-settings-week-g
 })
 export class WeekdaysAxisComponent implements OnInit {
     @Input() settings: CalendarSettingsWeekGridModel;
+    @Input() coordsConverter: CoordsConverterInterface;
 
     isToday = isToday;
 
     ngOnInit(): void {
+    }
+
+    get firstDayVisible(): Date {
+        return this.coordsConverter.getSettings().getDaysVisible()[0];
+    }
+
+    getDayPositionStyle(d: Date): {[p: string]: string} {
+        const box = this.coordsConverter.getBoundingRect(startOfDay(d), 0);
+
+        return {
+            width: `${this.settings.dayWidthPx}px`,
+            top: '0',
+            left: `${box.left}px`
+        };
+    }
+
+    getAxisPositionStyle(): {[p: string]: string} {
+        return {
+            width: `${this.settings.dayWidthPx * this.settings.getDaysVisible().length}px`,
+        };
     }
 }

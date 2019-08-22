@@ -11,14 +11,34 @@
 
     </div>
     <div class="weekdays">
-        <app-calendar-weekdays-axis [settings]="settings"></app-calendar-weekdays-axis>
+        <div class="scroll-container" #days>
+            <app-calendar-weekdays-axis
+                [coordsConverter]="coordsConverter"
+                [settings]="settings"
+            ></app-calendar-weekdays-axis>
+        </div>
     </div>
     <div class="hours">
-        <app-calendar-hours-axis [settings]="settings"></app-calendar-hours-axis>
+        <div class="scroll-container" #hours>
+            <app-calendar-hours-axis
+                [coordsConverter]="coordsConverter"
+                [settings]="settings"
+            ></app-calendar-hours-axis>
+        </div>
     </div>
-    <div class="grid">
-        <div class="container" [ngStyle]="coordsConverter.getLayoutDimensionsStyle()">
-            <app-calendar-grid [coordsConverter]="coordsConverter"></app-calendar-grid>
+    <div class="grid"
+         (scroll)="hours.scrollTop = grid.scrollTop; days.scrollLeft = grid.scrollLeft;"
+         #grid
+    >
+        <div
+            class="container"
+            [ngStyle]="coordsConverter.getLayoutDimensionsStyle()"
+        >
+            <app-calendar-grid
+                [settings]="settings"
+                [coordsConverter]="coordsConverter"
+            ></app-calendar-grid>
+
             <app-calendar-invitations [coordsConverter]="coordsConverter"></app-calendar-invitations>
         </div>
     </div>

@@ -1,19 +1,25 @@
 @import "../../shared/geometry-settings";
 
-.hour {
-    width: $hoursScrollerWidth;
-    height: $hourHeight;
+.axis {
     position: relative;
+    width: $hoursScrollerWidth;
 
-    .label {
+    .hour {
+        width: $hoursScrollerWidth;
         position: absolute;
-        top: $hourHeight/2 - 8px;
-        right: -0.5rem;
-        color: #7B828C;
-        transform: rotate(-90deg);
+
+        .label {
+            position: absolute;
+
+            top: 50%;
+            margin-top: -8px;
+
+            right: -0.5rem;
+            color: #7B828C;
+            transform: rotate(-90deg);
+        }
+
+        border-right: solid $borderWidth $borderColor;
+        border-bottom: solid $borderWidth white;
     }
-
-    border-right: solid $borderWidth $borderColor;
-    border-bottom: solid $borderWidth white;
 }
-

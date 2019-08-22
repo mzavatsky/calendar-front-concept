@@ -50,11 +50,6 @@ export class InvitationsComponent implements OnInit {
         this.invitations = invitationsMocks.map(event => {
             return EventModel.fromJSON(event);
         });
-
-        console.log(this.coordsConverter.getBoundingRect(
-           this.invitations[0].startAt,
-           this.invitations[0].durationSeconds
-        ));
     }
 
     get visibleEvents(): EventModel[] {
