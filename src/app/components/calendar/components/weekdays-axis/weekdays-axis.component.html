@@ -1,0 +1,5 @@
+<div *ngFor="let day of settings.daysVisible" class="day" [ngClass]="{'current': isToday(day)}">
+    <div class="month" *ngIf="day === settings.daysVisible[0] || day.getMonth() !== settings.daysVisible[0].getMonth()">
+        {{ day | date : 'MMMM' }}</div>
+    <div class="weekday">{{ day | date : 'd, EEEEEE' }}</div>
+</div>

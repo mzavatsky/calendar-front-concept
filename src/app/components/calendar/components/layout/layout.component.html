@@ -1,0 +1,23 @@
+<div class="page-layout">
+    <div class="week-selector">
+        Week selector
+    </div>
+    <div class="filters">
+        Filters
+    </div>
+    <div class="corner">
+
+    </div>
+    <div class="weekdays">
+        <app-calendar-weekdays-axis [settings]="settings"></app-calendar-weekdays-axis>
+    </div>
+    <div class="hours">
+        <app-calendar-hours-axis [settings]="settings"></app-calendar-hours-axis>
+    </div>
+    <div class="grid">
+        <div class="container" [ngStyle]="coordsConverter.getLayoutDimensionsStyle()">
+            <app-calendar-grid [coordsConverter]="coordsConverter"></app-calendar-grid>
+            <app-calendar-invitations [coordsConverter]="coordsConverter"></app-calendar-invitations>
+        </div>
+    </div>
+</div>

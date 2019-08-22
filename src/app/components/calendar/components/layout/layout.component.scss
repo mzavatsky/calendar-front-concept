@@ -1,0 +1,58 @@
+@import "../../shared/geometry-settings";
+
+.page-layout {
+    width: $pageWidth;
+    display: grid;
+
+    grid-template-columns: $hoursScrollerWidth 7 * ($dayWith + $borderWidth);
+    grid-template-rows: $weekdaysScrollerHeight $filtersHeight $weekdaysScrollerHeight auto;
+
+    grid-template-areas:
+        "weekSelector weekSelector"
+        "filters filters"
+        "corner weekdaysScroller"
+        "hoursScroller calendarGrid"
+    ;
+
+    .week-selector {
+        grid-area: weekSelector;
+        overflow: hidden;
+
+        border-bottom: solid $borderWidth $borderColor;
+    }
+
+    .filters {
+        grid-area: filters;
+        overflow: hidden;
+
+        border-bottom: solid $borderWidth $borderColor;
+    }
+
+    .corner {
+        grid-area: corner;
+        overflow: hidden;
+    }
+
+    .weekdays {
+        grid-area: weekdaysScroller;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .hours {
+        grid-area: hoursScroller;
+        overflow-x: hidden;
+        overflow-y: auto;;
+
+    }
+
+    .grid {
+        grid-area: calendarGrid;
+        overflow: auto;
+
+        .container {
+            position: relative;
+            overflow: hidden;
+        }
+    }
+}

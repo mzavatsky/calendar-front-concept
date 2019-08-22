@@ -1,0 +1,11 @@
+.invitations {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .bbox {
+        position: absolute;
+        border: solid 1px darkblue;
+        background-color: #5D9CEC;
+    }
+}
