@@ -1,5 +1,5 @@
 <div class="box">
-    <div class="title">{{ payload.comment }}</div>
+    <div class="title" [title]="payload.comment">{{ payload.comment }}</div>
     <div class="time">
         {{ this.event.startAt | date : 'HH:mm' }}–{{ this.event.endAt | date : 'HH:mm' }}
     </div>

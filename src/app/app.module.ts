@@ -10,6 +10,7 @@ import {GridComponent} from '@cal/components/grid/grid.component';
 import {InvitationsComponent} from '@cal/components/invitations/invitations.component';
 import {EventComponent} from '@cal/components/events/event/event.component';
 import {EventGenericComponent} from '@cal/components/events/event/generic/component/generic.component';
+import {EventMeetingComponent} from '@cal/components/events/event/meeting/component/meeting.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import {EventGenericComponent} from '@cal/components/events/event/generic/compon
         InvitationsComponent,
         EventComponent,
         EventGenericComponent,
+        EventMeetingComponent,
     ],
     imports: [
         BrowserModule,
