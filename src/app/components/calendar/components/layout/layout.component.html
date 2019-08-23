@@ -11,7 +11,10 @@
 
     </div>
     <div class="weekdays">
-        <div class="scroll-container" #days>
+        <div class="scroll-container"
+             (scroll)="syncHorizontalScroll(grid, days, SCROLL_SOURCE_AXIS)"
+             #days
+        >
             <app-calendar-weekdays-axis
                 [coordsConverter]="coordsConverter"
                 [settings]="settings"
@@ -19,7 +22,10 @@
         </div>
     </div>
     <div class="hours">
-        <div class="scroll-container" #hours>
+        <div class="scroll-container"
+             (scroll)="syncVerticalScroll(grid, hours, SCROLL_SOURCE_AXIS)"
+             #hours
+        >
             <app-calendar-hours-axis
                 [coordsConverter]="coordsConverter"
                 [settings]="settings"
@@ -27,7 +33,7 @@
         </div>
     </div>
     <div class="grid"
-         (scroll)="hours.scrollTop = grid.scrollTop; days.scrollLeft = grid.scrollLeft;"
+         (scroll)="syncScroll(grid, days, hours, SCROLL_SOURCE_GRID)"
          #grid
     >
         <div
