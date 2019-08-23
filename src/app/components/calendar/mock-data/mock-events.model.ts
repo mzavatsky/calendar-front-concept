@@ -59,7 +59,24 @@ export class MockEventsModel {
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
         },
-
+        {
+            startAt: new Date(2019, 7, 21, 10, 0, 0),
+            durationSeconds: 30 * 60,
+            type: EventTypeModel.TYPE_CLASS,
+            payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
+        },
+        {
+            startAt: new Date(2019, 7, 22, 10, 30, 0),
+            durationSeconds: 30 * 60,
+            type: EventTypeModel.TYPE_CLASS,
+            payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
+        },
+        {
+            startAt: new Date(2019, 7, 23, 9, 0, 0),
+            durationSeconds: 45 * 60,
+            type: EventTypeModel.TYPE_CLASS,
+            payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
+        },
     ];
 
     static readonly slots = [];
