@@ -16,6 +16,7 @@ export class LayoutComponent implements OnInit {
     readonly SCROLL_SOURCE_NONE = 0;
     readonly SCROLL_SOURCE_GRID = 1;
     readonly SCROLL_SOURCE_AXIS = 2;
+    readonly SCROLL_SYNC_DISABLED = 3;
 
     private currentVerticalScrollSource = this.SCROLL_SOURCE_NONE;
     private currentVerticalScrollSourceTimeoutId = -1;
