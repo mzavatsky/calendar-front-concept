@@ -1,0 +1,7 @@
+<div class="events-layer" [ngStyle]="coordsConverter.getLayoutDimensionsStyle()">
+    <app-calendar-event
+        *ngFor="let event of visibleEvents"
+        [event]="event"
+        [boundingRect]="coordsConverter.getBoundingRect(event.startAt, event.durationSeconds)"
+    ></app-calendar-event>
+</div>

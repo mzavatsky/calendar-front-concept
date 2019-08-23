@@ -1,4 +1,4 @@
-<div class="invitations" [ngStyle]="coordsConverter.getLayoutDimensionsStyle()">
+<div class="invitations-layer" [ngStyle]="coordsConverter.getLayoutDimensionsStyle()">
     <app-calendar-event
         *ngFor="let event of visibleEvents"
         [event]="event"

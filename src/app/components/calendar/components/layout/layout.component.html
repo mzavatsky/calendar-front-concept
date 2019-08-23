@@ -45,7 +45,15 @@
                 [coordsConverter]="coordsConverter"
             ></app-calendar-grid>
 
-            <app-calendar-invitations [coordsConverter]="coordsConverter"></app-calendar-invitations>
+            <app-calendar-layer-invitations
+                [invitations]="eventsProvider.getInvitations()"
+                [coordsConverter]="coordsConverter"
+            ></app-calendar-layer-invitations>
+
+            <app-calendar-layer-events
+                [events]="eventsProvider.getEvents()"
+                [coordsConverter]="coordsConverter"
+            ></app-calendar-layer-events>
         </div>
     </div>
 </div>

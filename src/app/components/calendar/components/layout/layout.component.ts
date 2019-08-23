@@ -1,8 +1,9 @@
-import {Component, ElementRef, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {eachDay, endOfWeek, startOfDay, startOfWeek, addHours} from 'date-fns';
 import {CalendarSettingsWeekGridModel} from '@cal/model/calendar-settings-week-grid.model';
 import {CoordsConverterInterface} from '@cal/interfaces/coords-converter.interface';
 import {CoordsConverterWeekGridService} from '@cal/services/coords-converter-week-grid.service';
+import {MockEventsProviderService} from '@cal/services/mock-events-provider.service';
 
 @Component({
     selector: 'app-calendar-layout',
@@ -10,6 +11,8 @@ import {CoordsConverterWeekGridService} from '@cal/services/coords-converter-wee
     styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+    private static SCROLL_SYNC_DELAY_MS = 200;
+
     readonly SCROLL_SOURCE_NONE = 0;
     readonly SCROLL_SOURCE_GRID = 1;
     readonly SCROLL_SOURCE_AXIS = 2;
@@ -24,6 +27,8 @@ export class LayoutComponent implements OnInit {
 
     settings: CalendarSettingsWeekGridModel;
     coordsConverter: CoordsConverterInterface;
+
+    constructor(public eventsProvider: MockEventsProviderService) {}
 
     ngOnInit(): void {
         this.fromDate = startOfWeek(new Date(), {weekStartsOn: 1});
@@ -74,7 +79,7 @@ export class LayoutComponent implements OnInit {
                 this.currentVerticalScrollSource = this.SCROLL_SOURCE_NONE;
                 this.currentVerticalScrollSourceTimeoutId = -1;
             },
-            100
+            LayoutComponent.SCROLL_SYNC_DELAY_MS
         );
     }
 
@@ -103,7 +108,7 @@ export class LayoutComponent implements OnInit {
                 this.currentHorizontalScrollSource = this.SCROLL_SOURCE_NONE;
                 this.currentHorizontalScrollSourceTimeoutId = -1;
             },
-            100
+            LayoutComponent.SCROLL_SYNC_DELAY_MS
         );
     }
 }
