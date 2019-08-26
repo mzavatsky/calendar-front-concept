@@ -46,12 +46,12 @@
             ></app-calendar-grid>
 
             <app-calendar-layer-invitations
-                [invitations]="eventsProvider.getInvitations()"
+                [invitations]="boxedInvitations"
                 [coordsConverter]="coordsConverter"
             ></app-calendar-layer-invitations>
 
             <app-calendar-layer-events
-                [events]="eventsProvider.getEvents()"
+                [events]="boxedEvents"
                 [coordsConverter]="coordsConverter"
             ></app-calendar-layer-events>
         </div>

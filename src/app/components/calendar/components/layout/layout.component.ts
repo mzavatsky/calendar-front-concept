@@ -4,6 +4,7 @@ import {CalendarSettingsWeekGridModel} from '@cal/model/calendar-settings-week-g
 import {CoordsConverterInterface} from '@cal/interfaces/coords-converter.interface';
 import {CoordsConverterWeekGridService} from '@cal/services/coords-converter-week-grid.service';
 import {MockEventsProviderService} from '@cal/services/mock-events-provider.service';
+import {EventBoxedModel} from '@cal/model/event-boxed.model';
 
 @Component({
     selector: 'app-calendar-layout',
@@ -48,6 +49,24 @@ export class LayoutComponent implements OnInit {
 
         this.settings = new CalendarSettingsWeekGridModel(days, hours);
         this.coordsConverter = new CoordsConverterWeekGridService(this.settings);
+    }
+
+    get boxedInvitations(): EventBoxedModel[] {
+        const boxedEvents = this.eventsProvider.getInvitations().map(event => {
+            const boundingRect = this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds);
+            return boundingRect === null ? null : new EventBoxedModel(event, boundingRect);
+        });
+
+        return boxedEvents.filter(event => event !== null);
+    }
+
+    get boxedEvents(): EventBoxedModel[] {
+        const boxedEvents = this.eventsProvider.getEvents().map(event => {
+            const boundingRect = this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds);
+            return boundingRect === null ? null : new EventBoxedModel(event, boundingRect);
+        });
+
+        return boxedEvents.filter(event => event !== null);
     }
 
     syncScroll(grid: HTMLElement, horizontalAxis: HTMLElement, verticalAxis: HTMLElement, scrollSource: number): void {

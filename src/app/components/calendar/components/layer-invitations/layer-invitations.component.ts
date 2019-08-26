@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {EventBoxedModel} from '@cal/model/event-boxed.model';
 import {CoordsConverterInterface} from '@cal/interfaces/coords-converter.interface';
-import {EventModel} from '@cal/model/event.model';
 
 @Component({
     selector: 'app-calendar-layer-invitations',
@@ -10,14 +10,8 @@ import {EventModel} from '@cal/model/event.model';
 export class LayerInvitationsComponent implements OnInit {
     @Input() coordsConverter: CoordsConverterInterface;
 
-    @Input() invitations: EventModel[];
+    @Input() invitations: EventBoxedModel[];
 
     ngOnInit(): void {
-    }
-
-    get visibleEvents(): EventModel[] {
-        return this.invitations.filter(event => {
-            return this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds) !== null;
-        });
     }
 }

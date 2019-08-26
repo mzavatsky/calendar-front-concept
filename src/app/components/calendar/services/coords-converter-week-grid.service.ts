@@ -21,6 +21,8 @@ export class CoordsConverterWeekGridService implements CoordsConverterInterface 
             return null;
         }
 
+        //console.log('Recalc ' + startAt.toISOString());
+
         let dayIndex = 0;
 
         while (

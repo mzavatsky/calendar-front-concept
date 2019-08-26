@@ -25,6 +25,9 @@ export class HoursAxisComponent implements OnInit {
     }
 
     getAxisPositionStyle(): {[p: string]: string} {
+        console.log('W1');
+
+
         return {
             height: `${this.settings.hourHeightPx * this.settings.getHoursVisible().length}px`,
         };
