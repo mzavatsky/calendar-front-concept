@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {isToday, startOfDay} from 'date-fns';
-import {CoordsConverterInterface} from '@cal/interfaces/coords-converter.interface';
+import {isToday} from 'date-fns';
 import {CalendarSettingsWeekGridModel} from '@cal/model/calendar-settings-week-grid.model';
+import {EventBoxedModel} from '@cal/model/event-boxed.model';
 
 @Component({
     selector: 'app-calendar-weekdays-axis',
@@ -10,7 +10,7 @@ import {CalendarSettingsWeekGridModel} from '@cal/model/calendar-settings-week-g
 })
 export class WeekdaysAxisComponent implements OnInit {
     @Input() settings: CalendarSettingsWeekGridModel;
-    @Input() coordsConverter: CoordsConverterInterface;
+    @Input() ticks: EventBoxedModel[];
 
     isToday = isToday;
 
@@ -18,22 +18,16 @@ export class WeekdaysAxisComponent implements OnInit {
     }
 
     get firstDayVisible(): Date {
-        return this.coordsConverter.getSettings().getDaysVisible()[0];
+        return this.ticks[0].event.startAt;
     }
 
-    getDayPositionStyle(d: Date): {[p: string]: string} {
-        const box = this.coordsConverter.getBoundingRect(startOfDay(d), 0);
+    getDayPositionStyle(tick: EventBoxedModel): {[p: string]: string} {
+        const box = tick.boundingRect;
 
         return {
             width: `${this.settings.dayWidthPx}px`,
             top: '0',
             left: `${box.left}px`
-        };
-    }
-
-    getAxisPositionStyle(): {[p: string]: string} {
-        return {
-            width: `${this.settings.dayWidthPx * this.settings.getDaysVisible().length}px`,
         };
     }
 }

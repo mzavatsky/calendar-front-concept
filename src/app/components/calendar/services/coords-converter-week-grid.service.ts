@@ -21,22 +21,13 @@ export class CoordsConverterWeekGridService implements CoordsConverterInterface 
             return null;
         }
 
-        //console.log('Recalc ' + startAt.toISOString());
+        const dayIndex = this.findDayIndex(startAt);
 
-        let dayIndex = 0;
-
-        while (
-            dayIndex < this.settings.daysVisible.length
-            && startAt > endOfDay(this.settings.daysVisible[dayIndex])
-        ) {
-            dayIndex += 1;
-        }
-
-        if (dayIndex >= this.settings.daysVisible.length
-            || startAt < startOfDay(this.settings.daysVisible[dayIndex])
-        ) {
+        if (dayIndex === null) {
             return null;
         }
+
+        const left = dayIndex * this.settings.dayWidthPx;
 
         let hourIndex = 0;
 
@@ -84,14 +75,31 @@ export class CoordsConverterWeekGridService implements CoordsConverterInterface 
             bottom -= this.secondsToPx(differenceInSeconds(currentHour, endAt));
         }
 
-        const left = dayIndex * this.settings.dayWidthPx;
-
         return new BoundingRectModel(
             top,
             left,
             this.settings.dayWidthPx,
             bottom - top
         );
+    }
+
+    private findDayIndex(startAt: Date): number|null {
+        let dayIndex = 0;
+
+        while (
+            dayIndex < this.settings.daysVisible.length
+            && startAt > endOfDay(this.settings.daysVisible[dayIndex])
+            ) {
+            dayIndex += 1;
+        }
+
+        if (dayIndex >= this.settings.daysVisible.length
+            || startAt < startOfDay(this.settings.daysVisible[dayIndex])
+        ) {
+            return null;
+        }
+
+        return dayIndex;
     }
 
     private secondsToPx(seconds: number): number {

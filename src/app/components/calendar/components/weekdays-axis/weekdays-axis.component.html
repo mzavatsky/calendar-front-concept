@@ -1,15 +1,11 @@
-<div class="axis"
-     [ngStyle]="getAxisPositionStyle()"
+<div *ngFor="let tick of ticks"
+     class="cell" [ngClass]="{'current': isToday(tick.event.startAt)}"
+     [ngStyle]="getDayPositionStyle(tick)"
 >
-    <div *ngFor="let day of coordsConverter.getSettings().getDaysVisible()"
-         class="cell" [ngClass]="{'current': isToday(day)}"
-         [ngStyle]="getDayPositionStyle(day)"
+    <div class="month"
+         *ngIf="tick.event.startAt === firstDayVisible || tick.event.startAt.getMonth() !== firstDayVisible.getMonth()"
     >
-        <div class="month"
-             *ngIf="day === firstDayVisible || day.getMonth() !== firstDayVisible.getMonth()"
-        >
-            {{ day | date : 'MMMM' }}
-        </div>
-        <div class="weekday">{{ day | date : 'd, EEEEEE' }}</div>
+        {{ tick.event.startAt | date : 'MMMM' }}
     </div>
+    <div class="weekday">{{ tick.event.startAt | date : 'd, EEEEEE' }}</div>
 </div>

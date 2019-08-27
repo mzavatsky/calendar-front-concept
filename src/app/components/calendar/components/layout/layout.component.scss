@@ -58,6 +58,11 @@
 
             overflow-x: auto;
             overflow-y: hidden;
+
+            .axis {
+                position: relative;
+                height: $weekdaysScrollerHeight;
+            }
         }
     }
 
@@ -71,6 +76,11 @@
 
             overflow-x: hidden;
             overflow-y: auto;
+
+            .axis {
+                position: relative;
+                width: $hoursScrollerWidth;
+            }
         }
     }
 

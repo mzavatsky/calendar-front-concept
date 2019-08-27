@@ -7,7 +7,7 @@ export class EventModel extends Serializable {
     startAt: Date = null;
 
     @jsonProperty(Number)
-    durationSeconds: number = 0;
+    durationSeconds = 0;
 
     @jsonProperty(String)
     type: string = EventTypeModel.TYPE_GENERIC;

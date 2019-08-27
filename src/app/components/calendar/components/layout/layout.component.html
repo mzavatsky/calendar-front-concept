@@ -15,10 +15,12 @@
              (scroll)="syncHorizontalScroll(grid, days, SCROLL_SOURCE_AXIS)"
              #days
         >
-            <app-calendar-weekdays-axis
-                [coordsConverter]="coordsConverter"
-                [settings]="settings"
-            ></app-calendar-weekdays-axis>
+            <div class="axis" [ngStyle]="{width: layout.dimensions.width + 'px'}">
+                <app-calendar-weekdays-axis
+                    [ticks]="layout.horizontalAxisTicks"
+                    [settings]="settings"
+                ></app-calendar-weekdays-axis>
+            </div>
         </div>
     </div>
     <div class="hours">
@@ -26,10 +28,12 @@
              (scroll)="syncVerticalScroll(grid, hours, SCROLL_SOURCE_AXIS)"
              #hours
         >
-            <app-calendar-hours-axis
-                [coordsConverter]="coordsConverter"
-                [settings]="settings"
-            ></app-calendar-hours-axis>
+            <div class="axis" [ngStyle]="{height: layout.dimensions.height + 'px'}">
+                <app-calendar-hours-axis
+                    [ticks]="layout.verticalAxisTicks"
+                    [settings]="settings"
+                ></app-calendar-hours-axis>
+            </div>
         </div>
     </div>
     <div class="grid"
@@ -46,12 +50,12 @@
             ></app-calendar-grid>
 
             <app-calendar-layer-invitations
-                [invitations]="boxedInvitations"
+                [invitations]="layout.invitations"
                 [coordsConverter]="coordsConverter"
             ></app-calendar-layer-invitations>
 
             <app-calendar-layer-events
-                [events]="boxedEvents"
+                [events]="layout.events"
                 [coordsConverter]="coordsConverter"
             ></app-calendar-layer-events>
         </div>

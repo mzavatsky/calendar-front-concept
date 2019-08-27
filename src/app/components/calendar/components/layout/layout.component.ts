@@ -5,6 +5,9 @@ import {CoordsConverterInterface} from '@cal/interfaces/coords-converter.interfa
 import {CoordsConverterWeekGridService} from '@cal/services/coords-converter-week-grid.service';
 import {MockEventsProviderService} from '@cal/services/mock-events-provider.service';
 import {EventBoxedModel} from '@cal/model/event-boxed.model';
+import {BoundingRectModel} from '@cal/model/bounding-rect.model';
+import {EventModel} from '@cal/model/event.model';
+import {LayoutModel} from '@cal/model/layout.model';
 
 @Component({
     selector: 'app-calendar-layout',
@@ -30,6 +33,8 @@ export class LayoutComponent implements OnInit {
     settings: CalendarSettingsWeekGridModel;
     coordsConverter: CoordsConverterInterface;
 
+    layout: LayoutModel;
+
     constructor(public eventsProvider: MockEventsProviderService) {}
 
     ngOnInit(): void {
@@ -49,9 +54,48 @@ export class LayoutComponent implements OnInit {
 
         this.settings = new CalendarSettingsWeekGridModel(days, hours);
         this.coordsConverter = new CoordsConverterWeekGridService(this.settings);
+
+        this.prepareLayout();
     }
 
-    get boxedInvitations(): EventBoxedModel[] {
+    private prepareLayout() {
+        this.layout = new LayoutModel(
+            this.layoutDimensions,
+            this.horizontalAxisTicks,
+            this.verticalAxisTicks,
+            this.boxedInvitations,
+            this.boxedEvents,
+            []
+        );
+    }
+
+    private get horizontalAxisTicks(): EventBoxedModel[] {
+        return this.settings.getDaysVisible().map(d => {
+            return new EventBoxedModel(
+                EventModel.fromJSON({startAt: d}),
+                this.coordsConverter.getBoundingRect(d, 0)
+            );
+        });
+    }
+
+    private get verticalAxisTicks(): EventBoxedModel[] {
+        return this.settings.getHoursVisible().map(d => {
+            return new EventBoxedModel(
+                EventModel.fromJSON({startAt: d}),
+                this.coordsConverter.getBoundingRect(d, 0)
+            );
+        });}
+
+    private get layoutDimensions(): BoundingRectModel {
+        return new BoundingRectModel(
+            0,
+            0,
+            this.settings.getDaysVisible().length * this.settings.dayWidthPx,
+            this.settings.getHoursVisible().length * this.settings.hourHeightPx
+        );
+    }
+
+    private get boxedInvitations(): EventBoxedModel[] {
         const boxedEvents = this.eventsProvider.getInvitations().map(event => {
             const boundingRect = this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds);
             return boundingRect === null ? null : new EventBoxedModel(event, boundingRect);
@@ -60,7 +104,7 @@ export class LayoutComponent implements OnInit {
         return boxedEvents.filter(event => event !== null);
     }
 
-    get boxedEvents(): EventBoxedModel[] {
+    private get boxedEvents(): EventBoxedModel[] {
         const boxedEvents = this.eventsProvider.getEvents().map(event => {
             const boundingRect = this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds);
             return boundingRect === null ? null : new EventBoxedModel(event, boundingRect);
