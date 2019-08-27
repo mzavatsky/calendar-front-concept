@@ -12,6 +12,7 @@ import {EventGenericComponent} from '@cal/components/events/event/generic/compon
 import {EventMeetingComponent} from '@cal/components/events/event/meeting/component/meeting.component';
 import {EventClassComponent} from '@cal/components/events/event/class/component/class.component';
 import {LayerEventsComponent} from '@cal/components/layer-events/layer-events.component';
+import {ModalComponent} from '@cal/components/modal/modal.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import {LayerEventsComponent} from '@cal/components/layer-events/layer-events.co
         EventGenericComponent,
         EventMeetingComponent,
         EventClassComponent,
+        ModalComponent,
     ],
     imports: [
         BrowserModule,

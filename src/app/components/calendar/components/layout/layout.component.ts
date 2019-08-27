@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {eachDay, endOfWeek, startOfDay, startOfWeek, addHours} from 'date-fns';
 import {CalendarSettingsWeekGridModel} from '@cal/model/calendar-settings-week-grid.model';
 import {CoordsConverterInterface} from '@cal/interfaces/coords-converter.interface';
@@ -20,7 +20,6 @@ export class LayoutComponent implements OnInit {
     readonly SCROLL_SOURCE_NONE = 0;
     readonly SCROLL_SOURCE_GRID = 1;
     readonly SCROLL_SOURCE_AXIS = 2;
-    readonly SCROLL_SYNC_DISABLED = 3;
 
     private currentVerticalScrollSource = this.SCROLL_SOURCE_NONE;
     private currentVerticalScrollSourceTimeoutId = -1;
@@ -35,7 +34,12 @@ export class LayoutComponent implements OnInit {
 
     layout: LayoutModel;
 
-    constructor(public eventsProvider: MockEventsProviderService) {}
+    isModalVisible = false;
+    modalEvent: EventModel|null = null;
+
+    constructor(
+        public eventsProvider: MockEventsProviderService
+    ) {}
 
     ngOnInit(): void {
         this.fromDate = startOfWeek(new Date(), {weekStartsOn: 1});
@@ -177,6 +181,12 @@ export class LayoutComponent implements OnInit {
     }
 
     handleClickAction(event: EventModel) {
-        console.log('Handle click on ' + event.payload);
+        this.modalEvent = event;
+        this.isModalVisible = true;
+    }
+
+    hideModal() {
+        this.isModalVisible = false;
+        this.modalEvent = null;
     }
 }

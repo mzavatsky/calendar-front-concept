@@ -1,0 +1,13 @@
+<div class="backdrop" (click)="handleClose()">
+</div>
+<div class="modal-box">
+    <div class="header">
+        Event type «{{ event.type }}»
+        <div class="close-btn" (click)="handleClose()">×</div>
+    </div>
+    <div class="content">
+        <p>Starts at: <strong>{{ event.startAt | date : 'dd.MM.yy HH:mm' }}</strong></p>
+        <p>Event payload:</p>
+        <p class="code">{{ event.payload }}</p>
+    </div>
+</div>

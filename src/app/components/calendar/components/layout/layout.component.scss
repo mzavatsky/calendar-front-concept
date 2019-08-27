@@ -49,8 +49,7 @@
 
     .weekdays {
         grid-area: weekdaysScroller;
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow: hidden;
 
         .scroll-container {
             width: 100%;
@@ -118,5 +117,18 @@
 
         left: 22px;
         bottom: 18px;
+    }
+
+    &.modal-open {
+        overflow: hidden;
+        .weekdays, .hours {
+            .scroll-container {
+                overflow: hidden;
+            }
+        }
+
+        .grid {
+            overflow: hidden;
+        }
     }
 }

@@ -1,0 +1,75 @@
+@import "../../shared/geometry-settings";
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    z-index: 10000;
+}
+
+.modal-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+
+    width: 300px;
+    margin-left: -150px;
+    max-width: 90%;
+
+    height: 300px;
+    margin-top: -150px;
+
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    z-index: 10010;
+
+    .header, .content {
+        padding: 20px;
+    }
+
+    .header {
+        font-size: 18rem;
+        line-height: 1;
+        position: relative;
+
+        border-bottom: solid $borderWidth $borderColor;
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+
+            color: #969B9E;
+            font-size: 30rem;
+            line-height: 1;
+
+            cursor: pointer;
+
+            &:hover {
+                color: #333;
+            }
+        }
+    }
+
+    .content {
+        p {
+            margin-bottom: 12px;
+        }
+    }
+
+    .code {
+        border: solid 1px #ccc;
+        background-color: #F1EEFA;
+
+        font-family: Menlo, Monaco, monospace;
+        padding: 10px;
+    }
+}
