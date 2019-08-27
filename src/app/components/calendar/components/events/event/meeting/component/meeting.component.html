@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box" (click)="handleClick()">
     <div class="title" [title]="payload.comment">
         {{ payload.comment.length > 0 ? payload.comment : 'Встреча' }}
     </div>

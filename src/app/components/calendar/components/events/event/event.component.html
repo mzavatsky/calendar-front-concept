@@ -10,15 +10,18 @@
     <app-calendar-event-meeting *ngSwitchCase="eventType.TYPE_MEETING"
                                 [boundingRect]="boundingRect"
                                 [event]="event"
+                                (clickAction)="emitHandleClick($event)"
     ></app-calendar-event-meeting>
 
     <app-calendar-event-class *ngSwitchCase="eventType.TYPE_CLASS"
                                 [boundingRect]="boundingRect"
                                 [event]="event"
+                                (clickAction)="emitHandleClick($event)"
     ></app-calendar-event-class>
 
     <app-calendar-event-generic *ngSwitchDefault
                                 [boundingRect]="boundingRect"
                                 [event]="event"
+                                (clickAction)="emitHandleClick($event)"
     ></app-calendar-event-generic>
 </div>

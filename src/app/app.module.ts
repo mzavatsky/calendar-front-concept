@@ -7,7 +7,6 @@ import {LayoutComponent} from '@cal/components/layout/layout.component';
 import {HoursAxisComponent} from '@cal/components/hours-axis/hours-axis.component';
 import {WeekdaysAxisComponent} from '@cal/components/weekdays-axis/weekdays-axis.component';
 import {GridComponent} from '@cal/components/grid/grid.component';
-import {LayerInvitationsComponent} from '@cal/components/layer-invitations/layer-invitations.component';
 import {EventComponent} from '@cal/components/events/event/event.component';
 import {EventGenericComponent} from '@cal/components/events/event/generic/component/generic.component';
 import {EventMeetingComponent} from '@cal/components/events/event/meeting/component/meeting.component';
@@ -21,7 +20,6 @@ import {LayerEventsComponent} from '@cal/components/layer-events/layer-events.co
         HoursAxisComponent,
         WeekdaysAxisComponent,
         GridComponent,
-        LayerInvitationsComponent,
         LayerEventsComponent,
         EventComponent,
         EventGenericComponent,

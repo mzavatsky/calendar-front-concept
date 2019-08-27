@@ -92,6 +92,20 @@
         .container {
             position: relative;
             overflow: hidden;
+
+            .layer-events {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                &.layer-events-obligatory {
+                    opacity: 0.4;
+                }
+
+                &.layer-events-mandatory {
+                    opacity: 0.9;
+                }
+            }
         }
     }
 

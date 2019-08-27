@@ -49,15 +49,19 @@
                 [coordsConverter]="coordsConverter"
             ></app-calendar-grid>
 
-            <app-calendar-layer-invitations
-                [invitations]="layout.invitations"
-                [coordsConverter]="coordsConverter"
-            ></app-calendar-layer-invitations>
+            <div class="layer-events layer-events-obligatory">
+                <app-calendar-layer-events
+                    [events]="layout.invitations"
+                    (clickAction)="handleClickAction($event)"
+                ></app-calendar-layer-events>
+            </div>
 
-            <app-calendar-layer-events
-                [events]="layout.events"
-                [coordsConverter]="coordsConverter"
-            ></app-calendar-layer-events>
+            <div class="layer-events layer-events-mandatory">
+                <app-calendar-layer-events
+                    [events]="layout.events"
+                    (clickAction)="handleClickAction($event)"
+                ></app-calendar-layer-events>
+            </div>
         </div>
     </div>
 </div>

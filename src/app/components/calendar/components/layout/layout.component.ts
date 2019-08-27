@@ -175,4 +175,8 @@ export class LayoutComponent implements OnInit {
             LayoutComponent.SCROLL_SYNC_DELAY_MS
         );
     }
+
+    handleClickAction(event: EventModel) {
+        console.log('Handle click on ' + event.payload);
+    }
 }
