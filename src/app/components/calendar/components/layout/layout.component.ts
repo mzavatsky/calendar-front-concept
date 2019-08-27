@@ -69,7 +69,7 @@ export class LayoutComponent implements OnInit {
             this.verticalAxisTicks,
             this.boxedInvitations,
             this.boxedEvents,
-            []
+            this.boxedSlots
         );
     }
 
@@ -102,7 +102,18 @@ export class LayoutComponent implements OnInit {
     private get boxedInvitations(): EventBoxedModel[] {
         const boxedEvents = this.eventsProvider.getInvitations().map(event => {
             const boundingRect = this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds);
-            return boundingRect === null ? null : new EventBoxedModel(event, boundingRect);
+
+            return boundingRect === null
+                ? null
+                : new EventBoxedModel(
+                    event,
+                    new BoundingRectModel(
+                        boundingRect.top,
+                        boundingRect.left + this.settings.eventShift,
+                        boundingRect.width - this.settings.eventShift,
+                        boundingRect.height
+                    )
+                );
         });
 
         return boxedEvents.filter(event => event !== null);
@@ -111,7 +122,38 @@ export class LayoutComponent implements OnInit {
     private get boxedEvents(): EventBoxedModel[] {
         const boxedEvents = this.eventsProvider.getEvents().map(event => {
             const boundingRect = this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds);
-            return boundingRect === null ? null : new EventBoxedModel(event, boundingRect);
+
+            return boundingRect === null
+                ? null
+                : new EventBoxedModel(
+                    event,
+                    new BoundingRectModel(
+                        boundingRect.top,
+                        boundingRect.left,
+                        boundingRect.width - this.settings.eventShift,
+                        boundingRect.height
+                    )
+                );
+        });
+
+        return boxedEvents.filter(event => event !== null);
+    }
+
+    private get boxedSlots(): EventBoxedModel[] {
+        const boxedEvents = this.eventsProvider.getSlots().map(event => {
+            const boundingRect = this.coordsConverter.getBoundingRect(event.startAt, event.durationSeconds);
+
+            return boundingRect === null
+                ? null
+                : new EventBoxedModel(
+                    event,
+                    new BoundingRectModel(
+                        boundingRect.top,
+                        boundingRect.left,
+                        boundingRect.width - this.settings.eventShift,
+                        boundingRect.height
+                    )
+                );
         });
 
         return boxedEvents.filter(event => event !== null);

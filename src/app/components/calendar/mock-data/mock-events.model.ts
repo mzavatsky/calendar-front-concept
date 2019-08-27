@@ -4,7 +4,7 @@ export class MockEventsModel {
     static readonly invitations = [
         {
             startAt: new Date(2019, 7, 12, 11, 30, 0),
-            durationSeconds: 60 * 60,
+            durationSeconds: 59 * 60,
             type: EventTypeModel.TYPE_MEETING,
             payload: '{"comment": "Ретро", "numberOfParticipants": 9}'
         },
@@ -16,7 +16,7 @@ export class MockEventsModel {
         },
         {
             startAt: new Date(2019, 7, 20, 13, 0, 0),
-            durationSeconds: 60 * 60,
+            durationSeconds: 59 * 60,
             type: EventTypeModel.TYPE_MEETING,
             payload: '{"comment": "Встреча с руководителем", "numberOfParticipants": 2}'
         },
@@ -34,7 +34,7 @@ export class MockEventsModel {
         },
         {
             startAt: new Date(2019, 7, 23, 13, 0, 0),
-            durationSeconds: 1.5 * 60 * 60,
+            durationSeconds: 1.5 * 59 * 60,
             type: EventTypeModel.TYPE_GENERIC,
             payload: '{"comment": "Гоша Live"}'
         }
@@ -43,19 +43,19 @@ export class MockEventsModel {
     static readonly events = [
         {
             startAt: new Date(2019, 7, 19, 11, 0, 0),
-            durationSeconds: 60 * 60,
+            durationSeconds: 59 * 60,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Петя Васечкин", "lessonType": "single"}'
         },
         {
             startAt: new Date(2019, 7, 19, 15, 0, 0),
-            durationSeconds: 60 * 60,
+            durationSeconds: 59 * 60,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Иван Дорн", "lessonType": "regular"}'
         },
         {
             startAt: new Date(2019, 7, 20, 10, 0, 0),
-            durationSeconds: 60 * 60,
+            durationSeconds: 59 * 60,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
         },
@@ -76,6 +76,18 @@ export class MockEventsModel {
             durationSeconds: 45 * 60,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
+        },
+        {
+            startAt: new Date(2019, 7, 31, 12, 0, 0),
+            durationSeconds: 45 * 60,
+            type: EventTypeModel.TYPE_CLASS,
+            payload: '{"studentName": "Лара Крофт", "lessonType": "regular"}'
+        },
+        {
+            startAt: new Date(2019, 8, 1, 12, 0, 0),
+            durationSeconds: 45 * 60,
+            type: EventTypeModel.TYPE_CLASS,
+            payload: '{"studentName": "Лара Крофт", "lessonType": "regular"}'
         },
     ];
 

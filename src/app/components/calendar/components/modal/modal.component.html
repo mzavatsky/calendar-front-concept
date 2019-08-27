@@ -8,6 +8,6 @@
     <div class="content">
         <p>Starts at: <strong>{{ event.startAt | date : 'dd.MM.yy HH:mm' }}</strong></p>
         <p>Event payload:</p>
-        <p class="code">{{ event.payload }}</p>
+        <p class="code">{{ formatJson(event.payload) }}</p>
     </div>
 </div>

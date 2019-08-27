@@ -62,6 +62,13 @@
                     (clickAction)="handleClickAction($event)"
                 ></app-calendar-layer-events>
             </div>
+
+            <div class="layer-events layer-events-slots">
+                <app-calendar-layer-events
+                    [events]="layout.slots"
+                    (clickAction)="handleClickAction($event)"
+                ></app-calendar-layer-events>
+            </div>
         </div>
     </div>
 </div>

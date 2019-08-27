@@ -19,6 +19,12 @@
                                 (clickAction)="emitHandleClick($event)"
     ></app-calendar-event-class>
 
+    <app-calendar-event-class-slot *ngSwitchCase="eventType.TYPE_CLASS_SLOT"
+                              [boundingRect]="boundingRect"
+                              [event]="event"
+                              (clickAction)="emitHandleClick($event)"
+    ></app-calendar-event-class-slot>
+
     <app-calendar-event-generic *ngSwitchDefault
                                 [boundingRect]="boundingRect"
                                 [event]="event"

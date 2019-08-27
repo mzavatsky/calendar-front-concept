@@ -14,6 +14,10 @@ export class ModalComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    formatJson(str: string): string {
+        return str.replace(',"', ', "');
+    }
+
     handleClose() {
         this.close.emit();
     }
