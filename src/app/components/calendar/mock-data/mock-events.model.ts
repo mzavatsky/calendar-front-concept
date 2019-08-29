@@ -10,31 +10,31 @@ export class MockEventsModel {
         },
         {
             startAt: new Date(2019, 7, 20, 11, 30, 0),
-            durationSeconds: 45 * 60,
+            durationSeconds: 45 * 60 - 1,
             type: EventTypeModel.TYPE_MEETING,
             payload: '{"comment": "Стендап", "numberOfParticipants": 9}'
         },
         {
             startAt: new Date(2019, 7, 20, 13, 0, 0),
-            durationSeconds: 59 * 60,
+            durationSeconds: 60 * 60 - 1,
             type: EventTypeModel.TYPE_MEETING,
             payload: '{"comment": "Встреча с руководителем", "numberOfParticipants": 2}'
         },
         {
             startAt: new Date(2019, 7, 21, 11, 30, 0),
-            durationSeconds: 30 * 60,
+            durationSeconds: 30 * 60 - 1,
             type: EventTypeModel.TYPE_GENERIC,
             payload: '{"comment": "Стендап"}'
         },
         {
             startAt: new Date(2019, 7, 22, 11, 30, 0),
-            durationSeconds: 30 * 60,
+            durationSeconds: 30 * 60 - 1,
             type: EventTypeModel.TYPE_GENERIC,
             payload: '{"comment": "Стендап"}'
         },
         {
             startAt: new Date(2019, 7, 23, 13, 0, 0),
-            durationSeconds: 1.5 * 59 * 60,
+            durationSeconds: 1.5 * 60 * 60 - 1,
             type: EventTypeModel.TYPE_GENERIC,
             payload: '{"comment": "Гоша Live"}'
         }
@@ -61,31 +61,31 @@ export class MockEventsModel {
         },
         {
             startAt: new Date(2019, 7, 21, 10, 0, 0),
-            durationSeconds: 30 * 60,
+            durationSeconds: 30 * 60 - 1,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
         },
         {
             startAt: new Date(2019, 7, 22, 10, 30, 0),
-            durationSeconds: 30 * 60,
+            durationSeconds: 30 * 60 - 1,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
         },
         {
             startAt: new Date(2019, 7, 23, 9, 0, 0),
-            durationSeconds: 45 * 60,
+            durationSeconds: 45 * 60 - 1,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Константин Константинопольский", "lessonType": "regular"}'
         },
         {
             startAt: new Date(2019, 7, 31, 12, 0, 0),
-            durationSeconds: 45 * 60,
+            durationSeconds: 45 * 60 - 1,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Лара Крофт", "lessonType": "regular"}'
         },
         {
             startAt: new Date(2019, 8, 1, 12, 0, 0),
-            durationSeconds: 45 * 60,
+            durationSeconds: 45 * 60 - 1,
             type: EventTypeModel.TYPE_CLASS,
             payload: '{"studentName": "Лара Крофт", "lessonType": "regular"}'
         },

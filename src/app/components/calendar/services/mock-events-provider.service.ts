@@ -1,6 +1,6 @@
 import {EventModel} from '@cal/model/event.model';
 import {EventsInterface} from '@cal/interfaces/events.interface';
-import {addHours, addSeconds, differenceInSeconds, endOfWeek, startOfHour, startOfWeek} from 'date-fns';
+import {addHours, addMinutes, addSeconds, differenceInSeconds, endOfWeek, startOfHour, startOfWeek} from 'date-fns';
 import {Injectable} from '@angular/core';
 import {MockEventsModel} from '@cal/mock-data/mock-events.model';
 import {EventTypeModel} from '@cal/model/event-type.model';
@@ -53,14 +53,14 @@ export class MockEventsProviderService implements EventsInterface {
 
             slots.push(
                 {
-                    startAt: startOfHour(startAt),
-                    durationSeconds: 59 * 60,
+                    startAt,
+                    durationSeconds: 29 * 60,
                     type: EventTypeModel.TYPE_CLASS_SLOT,
                     payload: JSON.stringify(payload)
                 }
             );
 
-            startAt = addHours(startAt, 1);
+            startAt = addMinutes(startAt, 30);
         }
 
         return slots;
