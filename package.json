@@ -1,6 +1,14 @@
 {
   "name": "calendar-concept",
   "version": "0.0.0",
+  "module": "dist/my-lib/fesm5/my-lib.js",
+  "typings": "dist/my-lib/my-lib.d.ts",
+  "es2015": "dist/my-lib/fesm2015/my-lib.js",
+  "esm2015": "dist/my-lib/esm2015/my-lib.js",
+  "esm5": "dist/my-lib/esm5/my-lib.js",
+  "fesm2015": "dist/my-lib/fesm2015/my-lib.js",
+  "fesm5": "dist/my-lib/fesm5/my-lib.js",
+  "metadata": "dist/my-lib/my-lib.metadata.json",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
