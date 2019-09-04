@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "teachers-calendar-component": [
+        "dist/teachers-calendar-component"
+      ],
+      "teachers-calendar-component/*": [
+        "dist/teachers-calendar-component/*"
+      ]
+    }
   }
 }

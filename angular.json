@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "teachers-calendar-component": {
+      "root": "projects/teachers-calendar-component",
+      "sourceRoot": "projects/teachers-calendar-component/src",
+      "projectType": "library",
+      "prefix": "tcc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/teachers-calendar-component/tsconfig.lib.json",
+            "project": "projects/teachers-calendar-component/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/teachers-calendar-component/src/test.ts",
+            "tsConfig": "projects/teachers-calendar-component/tsconfig.spec.json",
+            "karmaConfig": "projects/teachers-calendar-component/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/teachers-calendar-component/tsconfig.lib.json",
+              "projects/teachers-calendar-component/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "calendar-concept"
