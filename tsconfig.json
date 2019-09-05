@@ -25,6 +25,13 @@
       "teachers-calendar-component/*": [
         "dist/teachers-calendar-component/*"
       ]
+
+    // "teachers-calendar-component": [
+    //     "./projects/teachers-calendar-component/src/public-api"
+    // ],
+    // "teachers-calendar-component/*": [
+    //     "./projects/teachers-calendar-component/src/*"
+    // ]
     }
   }
 }
