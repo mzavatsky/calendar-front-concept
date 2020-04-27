@@ -1,0 +1,19 @@
+<div class="page-layout">
+    <h1>Widget settings</h1>
+    <p>
+        Slot duration: <input type="number" step="10" min="10" max="180" style="width: 50px; text-align: center;" #duration value="60"> min
+    </p>
+    <p>
+        Starts at:
+            <input type="number" step="1" min="0" max="23" style="width: 50px; text-align: center;" #startAtHour value="6"> hr
+            <input type="number" step="10" min="0" max="50" style="width: 50px; text-align: center;" #startAtMinute value="0"> min
+    </p>
+
+    <h1>Slots selector widget</h1>
+    <app-weekly-grid
+        [isoWeekDayFirst]="1"
+        [cellDurationSeconds]="60 * duration.value"
+        [gridStartSeconds]="3600 * startAtHour.value + 60 * startAtMinute.value"
+        [gridEndSeconds]="3600 * startAtHour.value + 60 * startAtMinute.value"
+    ></app-weekly-grid>
+</div>

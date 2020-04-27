@@ -1,0 +1,61 @@
+<div class="grid">
+    <div class="header">
+        <div class="time"></div>
+        <div class="weekday"
+             *ngFor="let weekDay of weekDays; index as x;"
+             title="{{ weekDay | date: 'd LLL' }}"
+             [ngClass]="{
+                'current': !isInSelection && x === mouseX,
+                'inSelection': isInSelection && isInMouseSelectionX(x)
+             }"
+        >
+            {{ weekDay | date: 'EEE' }}
+            <div class="first-day"
+                 *ngIf="weekDay.getDate() == firstEventDate.getDate()"
+            >
+                →
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="row"
+             *ngFor="let time of timeCells; index as y;"
+        >
+            <div class="time"
+                 [ngClass]="{
+                    'current': y === mouseY,
+                    'inSelection': isInSelection && isInMouseSelectionY(y)
+                 }"
+            >
+                {{ time | date: 'HH:mm' }}
+            </div>
+            <div class="cell"
+                 *ngFor="let weekDay of weekDays; index as x;"
+                 (mousedown)="onMouseDown(x, y)"
+                 (mouseenter)="onMouseEnter(x, y)"
+                 (mouseleave)="onMouseLeave(x, y)"
+                 [ngClass]="{'checked': isCellSelected(x, y), 'selected': isInMouseSelection(x, y), 'current': !isInSelection }"
+            >
+                {{ isCellSelected(x, y) ? '✓' : '' }}
+            </div>
+
+        </div>
+        <div class="check-modal"
+             [ngClass]="{'hidden': !isFinishingSelection}"
+             [ngStyle]="{'left': modalLeft, 'top': modalTop}"
+
+        >
+            <button (click)="checkSelected()">
+                ✓ Check selected
+            </button>
+            <button (click)="uncheckSelected()">
+                × Uncheck selected
+            </button>
+        </div>
+    </div>
+</div>
+<div class="buttons">
+    <button (click)="uncheckAll()">
+        × Uncheck all
+    </button>
+</div>

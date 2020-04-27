@@ -14,6 +14,8 @@ import {EventClassComponent} from '@cal/components/events/event/class/component/
 import {LayerEventsComponent} from '@cal/components/layer-events/layer-events.component';
 import {ModalComponent} from '@cal/components/modal/modal.component';
 import {EventClassSlotComponent} from '@cal/components/events/event/class-slot/component/class-slot.component';
+import {WeeklyGridLayoutComponent} from './components/weekly-grid/components/layout/layout.component';
+import {WeeklyGridComponent} from './components/weekly-grid/components/weekly-grid/weekly-grid.component';
 
 @NgModule({
     declarations: [
@@ -29,6 +31,8 @@ import {EventClassSlotComponent} from '@cal/components/events/event/class-slot/c
         EventClassComponent,
         EventClassSlotComponent,
         ModalComponent,
+        WeeklyGridLayoutComponent,
+        WeeklyGridComponent
     ],
     imports: [
         BrowserModule,

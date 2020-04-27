@@ -1,0 +1,131 @@
+$timeColumnWidth: 50px;
+$cellWidth: 35px;
+$cellHeight: 20px;
+
+$borderColor: #ccc;
+
+@mixin noselect {
+    user-select: none;
+}
+
+.grid {
+    .header {
+        display: grid;
+        grid-template-columns: $timeColumnWidth repeat(7, $cellWidth);
+        @include noselect;
+
+        .time {
+            text-align: center;
+            border-right: solid 1px $borderColor;
+        }
+
+        .weekday {
+            background: #eee;
+            text-align: center;
+            padding: 8px 0 3px 0;
+            border-right: solid 1px $borderColor;
+            position: relative;
+
+            .first-day {
+                position: absolute;
+                top: -1px;
+                right: 3px;
+                font-size: 10px;
+            }
+
+            &.current {
+                background-color: #9dc7a5;
+            }
+
+            &.inSelection {
+                background-color: #c1f7cb;
+            }
+        }
+    }
+
+    .body {
+        @include noselect;
+        position: relative;
+
+        .check-modal {
+            padding: 3px 5px 3px 10px;
+            background: white;
+            border: solid 1px #666;
+            box-shadow: 0 0 5px #7B828C;
+            width: 4 * $cellWidth;
+            line-height: 20px;
+            position: absolute;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: $timeColumnWidth repeat(7, $cellWidth);
+            height: $cellHeight;
+            line-height: $cellHeight;
+            vertical-align: middle;
+
+            .time {
+                text-align: center;
+                border-right: solid 1px $borderColor;
+
+                &.current {
+                    background-color: #9dc7a5;
+                }
+
+                &.inSelection {
+                    background-color: #c1f7cb;
+                }
+
+                height: $cellHeight;
+                line-height: $cellHeight;
+            }
+
+            .cell {
+                text-align: center;
+                border-right: solid 1px $borderColor;
+                border-bottom: solid 1px $borderColor;
+                cursor: pointer;
+                height: $cellHeight;
+                line-height: $cellHeight;
+
+                &.current:hover {
+                    border: solid 1px darkslateblue;
+                    margin-left: -1px;
+                    margin-top: -1px;
+                    height: $cellHeight + 1px;
+                }
+
+                &.checked {
+                    background: #5D9CEC;
+                    color: white;
+                }
+
+                &.selected {
+                    background: #dae6eb;
+                    color: white;
+                }
+
+                &.checked.selected {
+                    background: #8ab3d1;
+                }
+            }
+        }
+    }
+}
+
+.buttons {
+    margin-top: 10px;
+    margin-left: $timeColumnWidth;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover {
+    text-decoration: underline;
+}
